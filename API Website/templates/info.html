@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stock Price Details</title>
+  <link rel="stylesheet" href="static/styles2.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Stock Price History</h1>
+      <p class="sub-heading">Company: {{company}}</p>
+    </header>
+
+    <div class="stock-list">
+      {% for value in data %}
+      <div class="stock-card">
+        <div class="stock-card-header">
+          <p class="date">{{value['date'][:10]}}</p>
+        </div>
+        <div class="stock-card-body">
+          {% if value['close'] > value['open'] %}
+          <h2 class="price-green">{{value['close']}}</h2>
+          {% else %}
+          <h2 class="price">{{value['close']}}</h2>
+          {% endif %}
+          <p class="details">Opening Price: {{value['open']}} | High: {{value['high']}}| Low: {{value['low']}}|
+          Volume: {{value['volume']}}| Adjacent Close:{{value['adj_close']}}</p>
+        </div>
+      </div>
+      {% endfor %}
+
+    <!--   <div class="stock-card">
+        <div class="stock-card-header">
+          <p class="date">February 28, 2025</p>
+        </div>
+        <div class="stock-card-body">
+          <h2 class="price">$145.75</h2>
+          <p class="details">Opening Price: $140.50 | Closing Price: $146.80</p>
+        </div>
+      </div>
+
+      <div class="stock-card">
+        <div class="stock-card-header">
+          <p class="date">February 27, 2025</p>
+        </div>
+        <div class="stock-card-body">
+          <h2 class="price">$143.10</h2>
+          <p class="details">Opening Price: $141.00 | Closing Price: $145.00</p>
+        </div>
+      </div>-->
+
+      <!-- Add more stock cards as needed -->
+    </div>
+  </div>
+</body>
+</html>
+

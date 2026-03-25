@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Price Dashboard</title>
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Stock Price Dashboard</h1>
+            <p>Enter the stock symbol and date range to see historical data</p>
+        </header>
+
+        <div class="search-container">
+            <form method="post">
+            {{form.hidden_tag()}}
+            {{form.symbol}}
+            {{form.from_date}}
+            {{form.to_date}}
+            <button id="search-btn">{{form.submit}}Search</button>
+                </form>
+        </div>
+
+        <div id="stock-details" class="hidden">
+            <h2>Stock Details</h2>
+            <table>
+                <tr>
+                    <th>Ticker</th>
+                    <td id="ticker"></td>
+                </tr>
+                <tr>
+                    <th>Closing Price</th>
+                    <td id="closing-price"></td>
+                </tr>
+                <tr>
+                    <th>High Price</th>
+                    <td id="high-price"></td>
+                </tr>
+                <tr>
+                    <th>Low Price</th>
+                    <td id="low-price"></td>
+                </tr>
+                <tr>
+                    <th>Volume</th>
+                    <td id="volume"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
